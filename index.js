@@ -1,16 +1,19 @@
 const { Client, Events, GatewayIntentBits, EmbedBuilder } = require("discord.js")
 const { REST, Routes } = require('discord.js')
 const config = require('./src/config')
-
-const commands = require('./src/commands')
 const db = require("./src/database")
+
+//Require Commands Functions
+const commands = require('./src/commands')
 const getCommandsData = commands.map(command => {
   return command.data
 })
 
+//Require Event Functions
+const guildMemberAdd = require("./src/Events/guildMemberAdd")
 
+//Regiter of commands
 const rest = new REST({ version: '10' }).setToken(config.token);
-
 (async () => {
   try {
     console.log('Started refreshing application (/) commands.');
@@ -21,7 +24,7 @@ const rest = new REST({ version: '10' }).setToken(config.token);
   }
 })()
 
-
+//Set new client
 const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
@@ -32,21 +35,15 @@ const client = new Client({
 })
 
 
-client.on("guildMemberAdd", (member) => {
-  db.get('SELECT * from tb_servers WHERE server_id = ?', [member.guild.id], (err, row) => {
-    if (row && row.welcome_channel) {
-      const embed = new EmbedBuilder()
-        .setTitle(`bem vindo(a) á ${member.guild.name}`)
-        .setThumbnail(member.avatarURL())
-        .setDescription(`👋・Olá <@${member.id}>
-      ✨・Seja bem vindo(a) á ${member.guild.name}!
-      🧮・Você é o  ${member.guild.memberCount}° membro do servidor! `)
-      
-    }
-  })
-})
+//Events
+client.on("guildMemberAdd", (member) => guildMemberAdd(member, client, db).welcomeMessage())
 
 
+
+
+
+
+//Execute command by interaction
 client.on(Events.InteractionCreate, (interaction) => {
   if (!interaction.isChatInputCommand()) return;
   const getCommand = commands.find(command => command.data.name == interaction.commandName)

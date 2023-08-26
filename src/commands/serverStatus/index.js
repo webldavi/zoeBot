@@ -26,7 +26,7 @@ module.exports = {
             "inline": false
           },
           {
-            "name": "🔰 | Proprietário",
+            "name": "👑 | Proprietário",
             "value": `⥤ | <@${interaction.guild.ownerId}>`,
             "inline": false
           },
