@@ -40,9 +40,6 @@ client.on("guildMemberAdd", (member) => guildMemberAdd(member, client, db).welco
 
 
 
-
-
-
 //Execute command by interaction
 client.on(Events.InteractionCreate, (interaction) => {
   if (!interaction.isChatInputCommand()) return;

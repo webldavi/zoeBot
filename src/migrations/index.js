@@ -1,6 +1,9 @@
 const createServerTable = require('./createServersTable')
-const migrations = {
-  createServerTable
-}
+const createMemesTable = require('./createMemesTable')
 
-migrations[process.argv[2]]()[process.argv[3]]()
+const migrations = [{
+  createServerTable,
+  createMemesTable
+}]
+
+migrations[0][process.argv[2]]()[process.argv[3]]()

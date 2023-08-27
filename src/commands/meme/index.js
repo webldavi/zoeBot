@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require("discord.js");
+const db = require("../../database");
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -6,8 +7,9 @@ module.exports = {
     .setDescription("Responde com um meme aleatorio'"),
 
   execute: (interaction)=>{
-    fetch('https://raw.githubusercontent.com/LucianoDeveloper/memes-random/master/images.json').then(res=>res.json()).then(res=>{
-      interaction.reply(res.images[Math.floor(Math.random()*res.images.length)])
-    })
+   db.all("SELECT * FROM tb_memes", [], (err, rows)=>{
+    if(err) return interaction.reply("Erro interno!")
+    return interaction.reply(rows[Math.floor(Math.random() * rows.length)].url)
+   })
   }
 }
