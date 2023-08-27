@@ -16,11 +16,14 @@ O zoeBot é um bot Discord projetado para auxiliar no gerenciamento do seu servi
 
 ### Comandos de Boas-Vindas
 
-4. `/setwelcomechannel`: Define o canal para enviar mensagens de boas-vindas aos novos membros.
+1. `/setwelcomechannel`: Define o canal para enviar mensagens de boas-vindas aos novos membros.
 
 ### Comandos de Informações
 
-5. `/serverstatus`: Mostra informações do servidor, como número de membros, proprietário e canal de regras.
+1. `/serverstatus`: Mostra informações do servidor, como número de membros, proprietário e canal de regras.
+
+### Comandos de Diversão
+1. `/meme`: Gera um meme aleatorio para você dar boas risadas
 
 ## 🌟 Eventos
 
