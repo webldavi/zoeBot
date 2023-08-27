@@ -4,7 +4,7 @@ const serverStatus = require('./serverStatus')
 const setwelcomechannel = require('./setWelcomeChannel')
 const kick = require('./kick')
 const ban = require('./ban')
-
+const meme = require("./meme")
 
 
 
@@ -14,5 +14,6 @@ module.exports = [
   serverStatus,
   setwelcomechannel,
   kick,
-  ban
+  ban,
+  meme
 ]
