@@ -46,6 +46,7 @@ client.on("guildMemberAdd", (member) => guildMemberAdd(member, client, db).welco
 //Execute command by interaction
 client.on(Events.InteractionCreate, (interaction) => {
   if (!interaction.isChatInputCommand()) return;
+  
   const getCommand = commands.find(command => command.data.name == interaction.commandName)
   if (getCommand) {
     getCommand.execute(interaction)
