@@ -6,9 +6,9 @@ const createServerTable = () => {
       const query = `CREATE TABLE
         tb_servers (
           id INTEGER PRIMARY KEY AUTOINCREMENT,
-          server_id INTEGER,
+          server_id TEXT,
           name TEXT,
-          welcome_channel INT
+          welcome_channel TEXT
         )`
       db.run(query)
       

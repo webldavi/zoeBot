@@ -11,7 +11,10 @@
     "nodemon": "^3.0.1"
   },
   "dependencies": {
+    "@discordjs/voice": "^0.16.0",
+    "discord-player": "^6.6.2",
     "discord.js": "^14.12.1",
+    "erela.js": "^2.4.0",
     "sqlite3": "^5.1.6"
   }
 }

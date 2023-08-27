@@ -5,7 +5,7 @@ const setwelcomechannel = require('./setWelcomeChannel')
 const kick = require('./kick')
 const ban = require('./ban')
 const meme = require("./meme")
-
+const music = require('./music')
 
 
 module.exports = [
@@ -15,5 +15,6 @@ module.exports = [
   setwelcomechannel,
   kick,
   ban,
-  meme
+  meme,
+  music
 ]
