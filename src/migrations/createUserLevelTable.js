@@ -4,7 +4,9 @@ const createUserLevelTable = () => {
   return {
     up() {
       const query = `CREATE TABLE
-        tb_users_level (user_id TEXT, guild_id, xp_qty INT, level INT)`
+      tb_users_level (id INTEGER PRIMARY KEY AUTOINCREMENT,
+                      user_id TEXT, g
+                      uild_id, xp_qty INT, level INT))`
       db.run(query)
     },
     down() {

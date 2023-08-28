@@ -1,6 +1,6 @@
 const { EmbedBuilder } = require('@discordjs/builders')
 const db = require('../../database')
-module.exports = (interaction) => {
+module.exports = (interaction) => { 
   const query = "SELECT * FROM tb_users_level WHERE user_id = ? AND guild_id = ?"
   db.get(query, [interaction.member.id, interaction.guild.id], (err, row) => {
     if (err) return console.error(err)

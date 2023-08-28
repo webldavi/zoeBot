@@ -1,6 +1,6 @@
 const db = require("../../database")
 
-module.exports = ( message) => {
+module.exports = (message) => {
   if (!message.author.bot) {
     const user = message.member
     db.all('SELECT * FROM tb_users_level WHERE user_id = ?', [user.id], (err, rows) => {

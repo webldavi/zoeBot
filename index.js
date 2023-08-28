@@ -12,6 +12,7 @@ const getCommandsData = commands.map(command => {
 //Require Event Functions
 const guildMemberAdd = require("./src/Events/guildMemberAdd")
 const messageCreate = require('./src/Events/messageCreate')
+const guildMemberRemove = require('./src/Events/guildMemberRemove')
 
 
 //Regiter of commands
@@ -39,7 +40,7 @@ const client = new Client({
 //Events
 client.on("guildMemberAdd", member => guildMemberAdd(member, client, db).welcomeMessage())
 client.on("messageCreate", msg => messageCreate().levelSys(msg))
-
+client.on("guildMemberRemove", member=> guildMemberRemove().levelSys(member))
 
 
 client.once("ready", () => {
