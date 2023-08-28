@@ -5,7 +5,7 @@ module.exports = (interaction) => {
   if (interaction.member.permissions.has(PermissionsBitField.Flags.Administrator)) {
     const newXp = interaction.options.getNumber('xp')
     const newLevel = interaction.options.getNumber('level')
-    const member = interaction.options.getUser('membro')
+    const member = interaction.options.getUser('membro') 
     const query = 'SELECT * FROM tb_users_level WHERE user_id = ? AND guild_id = ?'
     db.get(query, [member.id, interaction.guild.id], async (err, row) => {
       if (err) return new Error(err)
