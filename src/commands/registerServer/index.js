@@ -3,6 +3,7 @@ const db = require('../../database')
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("registerserver")
+    .setDefaultMemberPermissions(PermissionsBitField.Flags.Administrator)
     .setDescription("Registre seu servidor no banco de dados"),
 
   execute: (interaction) => {

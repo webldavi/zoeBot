@@ -3,6 +3,7 @@ const db = require('../../database')
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("setwelcomechannel")
+    .setDefaultMemberPermissions(PermissionsBitField.Flags.Administrator)
     .setDescription("Defina qual canal aparecerá as mensagens de boas vindas"),
 
   execute: (interaction) => {
