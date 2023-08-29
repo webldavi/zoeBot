@@ -12,24 +12,32 @@ O zoeBot é um bot Discord projetado para auxiliar no gerenciamento do seu servi
 
 1. `/kick`: Expulsa membros do servidor. (Requer permissão de expulsar.)
 2. `/ban`: Bane membros do servidor. (Requer permissão de banir.)
-3. `/registerserver`: Registra o servidor no banco de dados do bot. (Requer permissão de administrador.)
 
+### Comandos de configuração
+1. `/server register`: Registra o servidor no banco de dados do bot. (Requer permissão de administrador.)
+2. 
 ### Comandos de Boas-Vindas
 
-1. `/setwelcomechannel`: Define o canal para enviar mensagens de boas-vindas aos novos membros.
+1. `/set welcome`: Define o canal para enviar mensagens de boas-vindas aos novos membros.
 
 ### Comandos de Informações
 
-1. `/serverstatus`: Mostra informações do servidor, como número de membros, proprietário e canal de regras.
+1. `/server status`: Mostra informações do servidor, como número de membros, proprietário e canal de regras.
 
 ### Comandos de Diversão
 1. `/meme`: Gera um meme aleatorio para você dar boas risadas
+
+### Comandos do sistema de level
+1. `/level rank`: Mostra qual seu level, quantidade de xp, posição no ranking do servidor
+2. `/level set`: Define o xp e o level de um membro
+3. `/level top`: Mostra os membros que estão no top 10 do ranking do servidor
+4. `/level user`: Mostrar as informações de ranking de um membro específico
 
 ## 🌟 Eventos
 
 ### Mensagem de Boas-Vindas
 
-Sempre que um novo membro entrar no servidor, o bot enviará uma mensagem de boas-vindas no canal definido com o comando `/setwelcomechannel`. A mensagem conterá o número atual de membros, juntamente com uma saudação calorosa.
+Sempre que um novo membro entrar no servidor, o bot enviará uma mensagem de boas-vindas no canal definido com o comando `/set welcome`. A mensagem conterá o número atual de membros, juntamente com uma saudação calorosa.
 
 ## 🚀 Como Adicionar o zoeBot ao Seu Servidor
 
