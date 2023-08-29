@@ -23,6 +23,7 @@ module.exports = {
     switch(command){
       case 'welcome':
         welcome(interaction)
+        break;
     }
   }
 }

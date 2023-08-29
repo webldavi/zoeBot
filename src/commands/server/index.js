@@ -20,8 +20,10 @@ module.exports = {
     switch (command) {
       case 'status':
         status(interaction)
+        break;
       case 'register':
         register(interaction)
+        break;
     }
   }
 }

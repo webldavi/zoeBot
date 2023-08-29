@@ -3,7 +3,7 @@ const db = require("../../database")
 
 module.exports = (interaction) => {
   db.get(`SELECT * FROM tb_servers WHERE server_id = ?`, [interaction.guild.id], async (err, row) => {
-    if (!row) return interaction.reply('Este servidor ainda não foi registrado, use `/registerserver` para registrar')
+    if (row == undefined) return interaction.reply('Este servidor ainda não foi registrado, use `/register server` para registrar')
 
     const createdAt = new Date(interaction.guild.createdTimestamp)
 

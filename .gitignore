@@ -3,3 +3,6 @@
 *.sqlite
 *.sql
 *.db
+*.zip
+/discloud
+*.config
