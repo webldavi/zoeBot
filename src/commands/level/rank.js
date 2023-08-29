@@ -1,20 +1,20 @@
 const { EmbedBuilder } = require('@discordjs/builders')
 const db = require('../../database')
-module.exports = (interaction) => { 
+module.exports = (interaction) => {
   const query = "SELECT * FROM tb_users_level WHERE user_id = ? AND guild_id = ?"
   db.get(query, [interaction.member.id, interaction.guild.id], (err, row) => {
     if (err) return console.error(err)
     if (row != undefined) {
       db.all('SELECT * FROM tb_users_level WHERE guild_id = ? ORDER BY level DESC', [interaction.guild.id], (rankErr, rows) => {
         if (rankErr) return console.error(rankErr)
-        const currentPosition = rows.findIndex(u=>u.id = interaction.member.id) + 1
+        const currentPosition = rows.findIndex(u => u.id = interaction.member.id) + 1
         const embed = new EmbedBuilder()
           .setAuthor({
             name: interaction.guild.name,
             iconURL: interaction.guild.iconURL()
           })
           .setThumbnail(interaction.member.displayAvatarURL())
-         
+
           .setTitle(interaction.user.tag)
           .setColor([235, 52, 110])
           .setFields([
@@ -33,14 +33,14 @@ module.exports = (interaction) => {
             {
               "id": 262526230,
               "name": "🏆 | Seu level",
-              "value":`Você está no level ${row.level}`,
+              "value": `Você está no level ${row.level}`,
               "inline": false
             }
           ])
-          interaction.reply({embeds: [embed]})
+        interaction.reply({ embeds: [embed], ephemeral: true })
       })
     } else {
-      interaction.reply("😕 Você ainda não ganhou xp neste servidor!")
+      interaction.reply({ content: "😕 Você ainda não ganhou xp neste servidor!", ephemeral: true })
     }
 
   })
