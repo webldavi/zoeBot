@@ -2,6 +2,7 @@ const { SlashCommandBuilder } = require("discord.js");
 const rank = require("./rank");
 const top = require("./top");
 const set = require("./set");
+const user = require("./user");
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -39,6 +40,17 @@ module.exports = {
             .setRequired(true)
         })
     })
+    .addSubcommand(command=>{
+      return command
+        .setName('user')
+        .setDescription("Mostra as indormações de level do membro escolhido!")
+        .addUserOption(option=>{
+          return option
+            .setName('membro')
+            .setDescription('Membro que você deseja ver as informações')
+            .setRequired(true)
+        })
+    })
 
     .setDescription("Ações relacionadas aos levels dos membros"),
   execute: (interaction) => {
@@ -46,10 +58,16 @@ module.exports = {
     switch (currentCommand) {
       case 'rank':
         rank(interaction)
+        break;
       case 'top':
         top(interaction)
+        break;
       case 'set':
         set(interaction)
+        break;
+      case 'user':
+        user(interaction)
+        break;
     }
   }
 }
