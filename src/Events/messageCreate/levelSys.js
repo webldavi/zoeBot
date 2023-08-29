@@ -1,5 +1,5 @@
 const db = require("../../database")
-
+const { EmbedBuilder } = require('discord.js')
 module.exports = (message) => {
   if (!message.author.bot) {
     const user = message.member
@@ -13,8 +13,18 @@ module.exports = (message) => {
           WHERE user_id = ?
               AND guild_id = ?`
           db.run(query, [currentGuild[0].level + 1, currentGuild[0].user_id, currentGuild[0].guild_id], (updateErr) => {
-           if(updateErr) return updateErr
-           return message.reply('🎉 Você subiu de level')
+            if (updateErr) return updateErr
+            const embed = new EmbedBuilder()
+              .setAuthor({
+                name: message.guild.name,
+                iconURL: message.guild.iconURL()
+              })
+              .setThumbnail(message.member.displayAvatarURL())
+              .setTitle("🎉 Parabéns! Você subiu de level!")
+              .setColor([235, 52, 110])
+              .setDescription("Você subiu oficialmente para o level " + parseInt(currentGuild[0].level + 1))
+
+            return message.reply({ embeds: [embed], ephemeral: true })
           })
         } else {
           const query = 'UPDATE tb_users_level SET xp_qty = ? WHERE user_id = ? AND guild_id = ?'
