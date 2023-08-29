@@ -1,20 +1,18 @@
 const ping = require('./ping')
-const registerServer = require('./registerServer')
-const serverStatus = require('./serverStatus')
-const setwelcomechannel = require('./setWelcomeChannel')
 const kick = require('./kick')
 const ban = require('./ban')
 const meme = require("./meme")
 const level = require('./level')
+const set = require('./set')
+const server = require('./server')
 
 
 module.exports = [
   ping,
-  registerServer,
-  serverStatus,
-  setwelcomechannel,
   kick,
   ban,
   meme,
-  level
+  level,
+  set,
+  server
 ]
