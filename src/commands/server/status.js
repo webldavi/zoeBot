@@ -33,12 +33,12 @@ module.exports = (interaction) => {
         },
         {
           "name": "😴 | Canal AFK",
-          "value": (interaction.guild.afkChannel != null) ? `⥤ | <#${interaction.guild.afkChannel.id}>` : 'Sem canal',
+          "value": (interaction.guild.afkChannel != null) ? `⥤ | <#${interaction.guild.afkChannel.id}>` : '⥤ | Sem canal',
           "inline": false
         },
         {
           "name": "📜 | Canal de regras",
-          "value": (interaction.guild.rulesChannel != null) ? `⥤ | <#${interaction.guild.rulesChannel.id}>` : 'Sem canal',
+          "value": (interaction.guild.rulesChannel != null) ? `⥤ | <#${interaction.guild.rulesChannel.id}>` : '⥤ | Sem canal',
           "inline": false
         },
         {

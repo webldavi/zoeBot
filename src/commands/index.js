@@ -5,7 +5,7 @@ const meme = require("./meme")
 const level = require('./level')
 const set = require('./set')
 const server = require('./server')
-
+const money = require('./money')
 
 module.exports = [
   ping,
@@ -14,5 +14,6 @@ module.exports = [
   meme,
   level,
   set,
-  server
+  server,
+  money
 ]

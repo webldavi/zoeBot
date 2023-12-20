@@ -26,6 +26,15 @@ module.exports = (message) => {
 
             return message.reply({ embeds: [embed], ephemeral: true })
           })
+          db.all("SELECT * FROM tB_users_money WHERE user_id = ? AND guild_id = ?", [user.id, message.guild.id], (err, rows)=>{
+            if(err) return new Error(err)
+            const money_query = `UPDATE tb_users_money
+            SET user_money = ?
+            WHERE user_id = ?
+            AND guild_id = ?`
+            db.run(money_query, [rows[0].user_money + 2, user.id, message.guild.id])
+          })
+        
         } else {
           const query = 'UPDATE tb_users_level SET xp_qty = ? WHERE user_id = ? AND guild_id = ?'
           db.run(query, [currentGuild[0].xp_qty + 1, currentGuild[0].user_id, currentGuild[0].guild_id])
@@ -33,6 +42,9 @@ module.exports = (message) => {
       } else {
         const query = 'INSERT INTO tb_users_level (user_id, guild_id, xp_qty, level) values(?,?,?,?)'
         db.run(query, [user.id, message.guild.id, 1, 1])
+
+        const money_query = 'INSERT INTO tb_users_money (user_id, user_money, guild_id) values(?,?,?)'
+        db.run(money_query, [user.id, 0, message.guild.id])
       }
     })
   }

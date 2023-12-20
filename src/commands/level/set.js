@@ -1,6 +1,5 @@
 const { PermissionsBitField } = require("discord.js")
 const db = require("../../database")
-
 module.exports = (interaction) => {
   if (interaction.member.permissions.has(PermissionsBitField.Flags.Administrator)) {
     const newXp = interaction.options.getNumber('xp')
